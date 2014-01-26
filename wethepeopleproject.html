@@ -1,0 +1,21 @@
+<html>
+<head>
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script>
+		$.ajax({url: 'we_the_people.php',method: 'get'}).done(function(data){
+		//console.log(data);
+		var json = $.parseJSON(data);
+		var results = json.results;
+		$.each(results, function(key,value) {
+			$('#data_here').append('<option value="' + value.id + '">' + value.title + '</option>');
+			console.log(value.title);
+		});
+		});
+	</script
+</head>
+<body style>
+	<h1> Choose your petition of interest:</h1>
+	<select id="data_here">
+	</select>
+</body>
+</html>
